@@ -8,6 +8,7 @@ from langchain_community.vectorstores import Chroma
 from langchain.chains import ConversationalRetrievalChain
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 # Set your Hugging Face token
 HUGGINGFACE_TOKEN = "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"
 os.environ['HUGGINGFACEHUB_API_TOKEN'] = HUGGINGFACE_TOKEN
