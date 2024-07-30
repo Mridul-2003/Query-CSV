@@ -1,0 +1,8 @@
+langchain
+langchain_community
+sentence-transformers==2.2.2
+faiss-cpu
+streamlit
+ctransformers
+chromadb
+transformers==4.28.0
