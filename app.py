@@ -4,7 +4,7 @@ import pandas as pd
 from langchain_community.document_loaders import CSVLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
@@ -32,7 +32,7 @@ if uploaded_file is not None:
     text_chunks = text_splitter.split_documents(data)
     
     embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
-    db = Chroma.from_documents(text_chunks, embeddings)
+    db = FAISS.from_documents(text_chunks,embeddings)
     
     model_name = "meta-llama/Llama-2-7b-chat-hf"
     tokenizer = AutoTokenizer.from_pretrained(model_name,use_auth_token=HUGGINGFACE_TOKEN)
